@@ -1,0 +1,32 @@
+/*gerais*/
+*{
+    font-family: Montserrat, sans-serif;
+}
+
+.font-weigth-semibold{
+    font-weight: 600;
+}
+
+.pos-center{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+/* CORES */
+.dark-blue{
+    color: #2A3C81;
+}
+
+.bg-medium-blue{
+  background-color: #E5EDFB;
+}
+
+.bg-light-grey{
+    background-color: #F5F7FB;
+}
+
+/*chart*/
+#boxChart{
+    min-height: 50vh;
+}

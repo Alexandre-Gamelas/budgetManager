@@ -1,0 +1,32 @@
+/*SIDE MENU*/
+.side-menu{
+    width: 75vw;
+    height: 100vh;
+    position: fixed;
+    left: 100vw;
+    transform: translate(-100%, 0); /******* POSICIONO TODO PARA A DIREITA, COMO O POSICIONAMENTO É FEITO PELO CANTO SUPERIOR ESQUERDO, DEPOIS FAÇO UM TRANSLATE PARA ESQUERDA = À LARGURA DA COISA *********/
+    top:0;
+
+    z-index: 100;
+    border-bottom: 1px solid transparent;
+    border-bottom-left-radius: 30px;
+}
+
+.seta-sair-broto {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#blur{
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    opacity: 0.8;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
