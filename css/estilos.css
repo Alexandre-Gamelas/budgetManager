@@ -13,20 +13,101 @@
     top: 50%;
     transform: translate(-50%, -50%);
 }
+
+.vmin4{
+    font-size: 4vmin;
+}
+
+footer{
+    margin-top: 15vh;
+}
+
+.costum-bg{
+    background-color: white;
+    border-radius: 5px;
+}
+
+.progress{
+    height: 4px;
+}
 /* CORES */
 .dark-blue{
     color: #2A3C81;
+}
+
+.blue{
+    color: #007AFF;
 }
 
 .bg-medium-blue{
   background-color: #E5EDFB;
 }
 
+.secondary-blue{
+    color: #BCC2D8;
+}
+
+.bg-grey{
+    background-color: #F0F1F6;
+}
+
 .bg-light-grey{
     background-color: #F5F7FB;
 }
 
+.green{
+    color: #3CD64A;
+}
+
+.bg-green{
+    background-color: #3CD64A;
+}
+
+.orange{
+    color: #FF9400;
+}
+
+.bg-orange{
+    background-color: #FF9400;
+}
+
 /*chart*/
-#boxChart{
+.chart{
     min-height: 50vh;
+}
+
+/**Menus**/
+@media screen and (max-width: 998px){
+    .menuContainer, #menu{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 998px){
+    #botMenu{
+        display: none;
+    }
+}
+
+.view{
+     display: none;
+ }
+
+.view-active{
+    display: block!important;
+}
+
+.week-card{
+    display: none;
+}
+
+.week-card-active{
+    display: block!important;
+}
+/*PROFILE*/
+.profileTop {
+    background: -webkit-linear-gradient(-45deg, #007aff 0%, #77b9ff 100%);
+}
+.marginProfile{
+    border-bottom: 2px solid rgba(204,204,204,0.4);
 }
