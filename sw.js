@@ -1,5 +1,6 @@
 const cacheName = 'Broto';
 const staticAssets = [
+    './app.php',
     './index.php',
     './css',
     './assets',

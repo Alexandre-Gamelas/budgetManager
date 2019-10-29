@@ -30,7 +30,7 @@
         );
         /*
         if($_SESSION['user']['papel']==1)
-            $menu["Administrador"] = "admin/index.php";
+            $menu["Administrador"] = "admin/app.php";
         */
         ?>
 

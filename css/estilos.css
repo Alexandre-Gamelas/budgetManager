@@ -111,3 +111,19 @@ footer{
 .marginProfile{
     border-bottom: 2px solid rgba(204,204,204,0.4);
 }
+
+/****INDEX********/
+#logo{
+    width: 90px;
+    height: 90px;
+}
+.button-1{
+    width: 100%;
+    padding: 10px;
+
+    border-radius: 30px;
+    border: 0 solid transparent;
+
+    background: -webkit-linear-gradient(-45deg, #007aff 0%, #77b9ff 100%);
+    color: white;
+}
