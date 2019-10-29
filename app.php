@@ -1,3 +1,5 @@
+<!doctype html>
+<html lang="en">
 <?php include_once "componentes/head.php" ?>
 <body class="bg-light-grey">
     <main class="container-fluid">

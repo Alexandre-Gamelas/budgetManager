@@ -22,6 +22,10 @@ footer{
     margin-top: 15vh;
 }
 
+body{
+    min-height: 100vh;
+}
+
 .costum-bg{
     background-color: white;
     border-radius: 5px;
@@ -126,4 +130,31 @@ footer{
 
     background: -webkit-linear-gradient(-45deg, #007aff 0%, #77b9ff 100%);
     color: white;
+}
+
+#loginForm input, #registerForm input, #registerForm select{
+    border-radius: 30px;
+    border-color: #77b9ff;
+    padding: 10px;
+}
+
+#registerForm select{
+    padding: 10px;
+    min-height: 46px;
+}
+
+#firstCheck, #secondCheck{
+    cursor: pointer!important;
+}
+
+#initialBudget::placeholder, #initialBudget{
+    text-align: center;
+}
+
+#initialBudget::placeholder{
+    font-size: 3vmin;
+}
+
+#register{
+    width: 80%!important;
 }
