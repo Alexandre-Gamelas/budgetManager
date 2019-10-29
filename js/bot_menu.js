@@ -6,6 +6,7 @@ $(".btn-menu-bot").click(function () {
     //console.log(target);
 
     $(".view-active").removeClass("view-active");
+    window.scrollTo(0, 0);
     $("#" + target).addClass("view-active");
 
     $(".btn-menu-bot i").removeClass("dark-blue");

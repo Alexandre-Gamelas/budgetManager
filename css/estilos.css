@@ -81,6 +81,17 @@ body{
 }
 
 /**Menus**/
+.btn-menu-bot{
+    cursor: pointer;
+}
+
+@media screen and (min-width: 998px){
+    .btn-menu-bot:hover{
+        color: #007AFF;
+        transition: 0.7s ease;
+    }
+
+}
 @media screen and (max-width: 998px){
     .menuContainer, #menu{
         display: none;

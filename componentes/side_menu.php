@@ -24,9 +24,10 @@
         <?php
 
         $menu = array(
-            "Perfil" => "perfil.php",
-            "Mapa" => "mapa.php",
-            "Logout" => "scripts/script_logout.php"
+            "Distribution" => "distribution",
+            "This Week" => "week",
+            "My Budget" => "budget",
+            "Profile" => "profile"
         );
         /*
         if($_SESSION['user']['papel']==1)
@@ -41,7 +42,7 @@
         foreach ($menu as $nome => $link) {
             ?>
 
-            <p class="mb-4"><a href="<?=$link?>" class="dark-blue"><?= $nome?></a></p>
+            <p class="mb-4 dark-blue btn-menu-bot" data-target="<?=$link?>" ><?= $nome?></p>
 
             <?php
         }
@@ -59,7 +60,7 @@
     $("#side-menu").css("width", 0);
     $("#side-menu > *").css("opacity", 0);
 
-    $("#menu, #menu-close, #blur").click(() => {
+    $("#menu, #menu-close, #blur, .btn-menu-bot").click(() => {
         console.log("ola");
         if (!menuState) {
 

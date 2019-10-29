@@ -1,4 +1,4 @@
-const cacheName = 'Broto';
+const cacheName = 'Budget Manager';
 const staticAssets = [
     './app.php',
     './index.php',

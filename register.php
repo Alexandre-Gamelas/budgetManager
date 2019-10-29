@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <?php include_once "componentes/head.php" ?>
-<body class="bg-light-grey">
+<body class="bg-light-grey animated slideInRight">
     <main class="container-fluid">
         <section class="row mt-5 pb-5 pt-5 justify-content-center">
             <article class="col-12 text-center">
