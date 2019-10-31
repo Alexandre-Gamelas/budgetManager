@@ -13,7 +13,7 @@
         </article>
     </section>
 
-    <form id='loginForm' action="app.php" method="post" class="row justify-content-center mt-5">
+    <form id='loginForm' action="scripts/script_login.php" method="post" class="row justify-content-center mt-5">
         <article class="col-8 col-lg-3">
             <input type="text" class="form-control" placeholder="E-mail" name="email">
         </article>

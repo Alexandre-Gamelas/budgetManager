@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <?php include_once "componentes/head.php" ?>
+<?php include_once "connections/connection.php" ?>
 <body class="bg-light-grey animated fadeIn">
     <main class="container-fluid">
        <?php include_once "views/distribution.php" ?>

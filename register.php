@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <?php include_once "componentes/head.php" ?>
+<?php include_once "connections/connection.php" ?>
 <body class="bg-light-grey animated slideInRight">
     <main class="container-fluid">
         <section class="row mt-5 pb-5 pt-5 justify-content-center">
@@ -15,7 +16,7 @@
 
         <div id="carouselRegister" class="carousel slide mt-3" data-ride="carousel" data-interval="false">
                 <div class="carousel-inner">
-                    <form id="registerForm" action="app.php" method="post" class="row justify-content-center text-center">
+                    <form id="registerForm" action="scripts/script_register.php" method="post" class="row justify-content-center text-center">
                         <div class="carousel-item active col-8 col-lg-3">
                             <h6 class="secondary-blue">Main Info</h6>
 
@@ -31,14 +32,28 @@
                         <div class="carousel-item col-8 col-lg-3">
                             <h6 class="secondary-blue">Extra Details</h6>
 
-                            <select type="text" class="form-control" name="email">
-                                <option value="1">Portugal</option>
-                                <option value="2">Germany</option>
+                            <select type="text" class="form-control" name="nationality">
+                                <?php
+                                include_once "scripts/get_nationalities.php";
+                                $nationalities = getNationalities();
+                                    foreach ($nationalities as $key => $name){
+                                        ?>
+                                             <option value="<?=$key?>"><?=$name?></option>
+                                        <?php
+                                    }
+                                ?>
                             </select>
 
-                            <select type="text" class="form-control mt-3" placeholder="E-mail" name="email">
-                                <option value="1">Student</option>
-                                <option value="2">Working</option>
+                            <select type="text" class="form-control mt-3" name="job">
+                                <?php
+                                include_once "scripts/get_jobs.php";
+                                $jobs = getJobs();
+                                foreach ($jobs as $key => $name){
+                                    ?>
+                                    <option value="<?=$key?>"><?=$name?></option>
+                                    <?php
+                                }
+                                ?>
                             </select>
 
                             <i class="fas fa-arrow-left fa-2x mt-3 blue mr-4 back"></i> <i id="secondCheck" class="fas fa-2x fa-check-circle mt-3 blue"></i>
