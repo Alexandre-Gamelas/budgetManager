@@ -1,4 +1,8 @@
 /*gerais*/
+.rounded-circle{
+    width: 50px;
+    height: 50px;
+}
 *{
     font-family: Montserrat, sans-serif;
 }
@@ -24,6 +28,7 @@ footer{
 
 body{
     min-height: 100vh;
+    overflow-x: hidden!important;
 }
 
 .costum-bg{
@@ -75,6 +80,9 @@ body{
     background-color: #FF9400;
 }
 
+.border-selected{
+    border: 1px solid #007AFF!important;
+}
 /*chart*/
 .chart{
     min-height: 50vh;
@@ -143,7 +151,7 @@ body{
     color: white;
 }
 
-#loginForm input, #registerForm input, #registerForm select{
+#loginForm input, #registerForm input, #registerForm select, #formEntry input{
     border-radius: 30px;
     border-color: #77b9ff;
     padding: 10px;
@@ -168,4 +176,9 @@ body{
 
 #register{
     width: 80%!important;
+}
+
+/****ENTRY******/
+#carouselCategorias .carousel-item i{
+    margin: 0 5px 0 7px;
 }

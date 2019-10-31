@@ -42,7 +42,7 @@
         foreach ($menu as $nome => $link) {
             ?>
 
-            <p class="mb-4 dark-blue btn-menu-bot" data-target="<?=$link?>" ><?= $nome?></p>
+            <p class="mb-4 dark-blue btn-menu-bot btn-menu-side" data-target="<?=$link?>" ><?= $nome?></p>
 
             <?php
         }
@@ -60,7 +60,7 @@
     $("#side-menu").css("width", 0);
     $("#side-menu > *").css("opacity", 0);
 
-    $("#menu, #menu-close, #blur, .btn-menu-bot").click(() => {
+    $("#menu, #menu-close, #blur, .btn-menu-side").click(() => {
         console.log("ola");
         if (!menuState) {
 

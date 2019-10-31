@@ -1,10 +1,11 @@
 <!doctype html>
 <html lang="en">
 <?php include_once "componentes/head.php" ?>
-<body class="bg-light-grey">
+<body class="bg-light-grey animated fadeIn">
     <main class="container-fluid">
        <?php include_once "views/distribution.php" ?>
        <?php include_once "views/week.php" ?>
+       <?php include_once "views/entry.php" ?>
        <?php include_once "views/budget.php" ?>
        <?php include_once "views/profile.php" ?>
        <?php include_once "componentes/modais.php" ?>

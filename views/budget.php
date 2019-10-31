@@ -26,7 +26,7 @@
         <!-- CADA SECTION É UMA CLASSE DE ORÇAMENTO -->
         <section class="row justify-content-center align-items-center mt-3">
             <article class="col-8">
-                <h5 class="dark-blue mb-0"><i class="fas fa-utensils rounded-circle pr-2 pl-0"></i>Food</h5>
+                <h5 class="dark-blue mb-0"><i class="fas fa-utensils  pr-2 pl-0"></i>Food</h5>
             </article>
 
             <article class="col-4 text-right">
@@ -42,7 +42,7 @@
 
         <section class="row justify-content-center align-items-center mt-5">
             <article class="col-8">
-                <h5 class="dark-blue mb-0"><i class="fas fa-plane rounded-circle pr-2 pl-0"></i>Transportation</h5>
+                <h5 class="dark-blue mb-0"><i class="fas fa-plane  pr-2 pl-0"></i>Transportation</h5>
             </article>
 
             <article class="col-4 text-right bg">
@@ -58,7 +58,7 @@
 
         <section class="row justify-content-center align-items-center mt-5">
             <article class="col-8">
-                <h5 class="dark-blue mb-0"><i class="fas fa-compact-disc rounded-circle pr-2 pl-0"></i>Culture</h5>
+                <h5 class="dark-blue mb-0"><i class="fas fa-compact-disc  pr-2 pl-0"></i>Culture</h5>
             </article>
 
             <article class="col-4 text-right">

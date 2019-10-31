@@ -7,7 +7,7 @@
         <i class="fas fa-signal "></i>
     </article>
 
-    <article class="col-2 text-center pt-3 pb-3 pl-0 pr-0">
+    <article class="col-2 text-center pt-3 pb-3 pl-0 pr-0 btn-menu-bot" data-target="entry">
         <i class="fas fa-plus-square "></i>
     </article>
 
