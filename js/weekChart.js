@@ -29,7 +29,7 @@ var ctx = document.getElementById("monthlyChart");
 var myLineChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ["Mon", "Tue", "Wen", "Thu", "Fri", "Sat", "Sun"],
+        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
         datasets: [{
             label: "Spendings",
             lineTension: 0.3,
@@ -43,7 +43,7 @@ var myLineChart = new Chart(ctx, {
             pointHoverBorderColor: "rgba(78, 115, 223, 1)",
             pointHitRadius: 10,
             pointBorderWidth: 2,
-            data: [13, 15, 40, 5, 16, 30, 3],
+            data: valuesW,
         }],
     },
     options: {

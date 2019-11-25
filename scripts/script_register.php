@@ -29,9 +29,10 @@ mysqli_close($link);
 /******GET ID************/
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
-$query = "SELECT id_utilizadores FROM utilizadores";
+$query = "SELECT id_utilizadores FROM utilizadores WHERE email LIKE ?";
 
 if (mysqli_stmt_prepare($stmt, $query)) {
+    mysqli_stmt_bind_param($stmt, 's', $mail);
     if (mysqli_stmt_execute($stmt)) {
         if(mysqli_stmt_bind_result($stmt, $id)){
             if(mysqli_stmt_fetch($stmt)){

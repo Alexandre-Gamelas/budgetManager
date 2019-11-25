@@ -1,3 +1,10 @@
+<?php
+$name = $user->getName();
+$nationality = $user->getNationality();
+$total = $distribution->getTotalCat();
+$count = $distribution->getCount();
+?>
+
 <div id="profile" class="view">
     <section class="row justify-content-center align-items-center profileTop">
         <article class="col-4 col-lg-2 mt-5">
@@ -6,20 +13,20 @@
 
 
         <article class="col-12 text-center mt-4">
-            <h4 class="text-white">Alexandre Gamelas</h4>
+            <h4 class="text-white"><?=$name?></h4>
         </article>
 
         <article class="col-12 text-center">
-            <h6 class="text-white">Portugal</h6>
+            <h6 class="text-white"><?=$nationality?></h6>
         </article>
 
         <article class="col-5 col-lg-6 text-center mt-4">
-            <h6 class="mb-0 text-white">500</h6>
+            <h6 class="mb-0 text-white"><?=$count?></h6>
             <p class="text-white"> Transactions</p>
         </article>
 
         <article class="col-5 col-lg-6 text-center mt-4">
-            <h6 class="mb-0 text-white">600</h6>
+            <h6 class="mb-0 text-white"><?=$total?></h6>
             <p class="text-white">Euros Spent</p>
         </article>
     </section>

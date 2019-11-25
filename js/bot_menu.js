@@ -1,4 +1,4 @@
-let start = "distribution";
+let start = "week";
 $("#" + start).addClass("view-active");
 
 $(".btn-menu-bot").click(function () {

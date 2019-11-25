@@ -1,4 +1,28 @@
-<div id="week" class="view">
+<?php
+$categorias = $user->getCategorias();
+$currentDate = new DateTime(date("Y-m-d"));
+$currentWeek = $currentDate -> format("W");
+$purchasesThisWeek = array();
+
+foreach ($categorias as $categoria){
+    $purchases = $categoria->getPurchases();
+    foreach ($purchases as $purchase){
+        $date = new DateTime($purchase->getDate());
+        $week = $date->format("W");
+        if($currentWeek==$week){
+            array_push($purchasesThisWeek, $purchase);
+        }
+    }
+}
+$week = new Week($purchasesThisWeek);
+?>
+
+<script>
+    var valuesW = <?php echo $week->publishTotals(); ?>;
+    console.log(valuesW);
+</script>
+
+<div id="week" class="view mb-5 pb-5">
     <?php
     $pageName = "This Week";
     include "componentes/top.php"
@@ -22,110 +46,47 @@
         </section>
     </div>
 
-    <div id="Mon" class="bg-white p-2 mt-5 week-card" style="border-radius: 5px">
-        <section class="row justify-content-between align-items-end">
-            <article class="col-8">
-                <h4 class="dark-blue mb-0">Monday</h4>
-            </article>
-        </section>
+    <?php
+    $weekDays = $week->getWeek();
+    foreach ($weekDays as $name => $day){
+        ?>
+            <div id="<?=$name?>" class="bg-white p-2 mt-5 week-card" style="border-radius: 5px">
+                <section class="row justify-content-between align-items-end">
+                    <article class="col-8">
+                        <h4 class="dark-blue mb-0"><?=$name?></h4>
+                    </article>
+                </section>
 
-        <section class="row mt-4 align-items-center">
-            <article class="col-2 text-center">
-                <i class="fas p-3 fa-heart rounded-circle bg-grey blue"></i>
-            </article>
+                <?php
+                    foreach ($day as $purchase){
+                        $categoria = $user->figureOutCategoria($purchase);
+                        $icon = $categoria->getIcon();
+                        $color = $categoria->getColor();
+                        $name = $purchase->getName();
+                        $value = $purchase->getValor();
+                        ?>
+                            <section class="row mt-4 align-items-center">
+                                <article class="col-2 text-center">
+                                    <i class="fas p-3 <?=$icon?> rounded-circle bg-grey <?=$color?>"></i>
+                                </article>
 
-            <article class="col-5">
-                <p class="mb-0 vmin4 dark-blue">Vacines</p>
-            </article>
+                                <article class="col-5">
+                                    <p class="mb-0 vmin4 dark-blue"><?=$name?></p>
+                                </article>
 
-            <article class="col-5 text-right">
-                <p class="mb-0 vmin4 secondary-blue">30€</p>
-            </article>
-        </section>
+                                <article class="col-5 text-right">
+                                    <p class="mb-0 vmin4 secondary-blue"><?=$value?>€</p>
+                                </article>
+                            </section>
+                        <?php
+                    }
 
-        <section class="row mt-4 align-items-center">
-            <article class="col-2 text-center">
-                <i class="fas p-3 fa-heart rounded-circle bg-grey blue"></i>
-            </article>
+                ?>
+            </div>
+        <?php
+    }
 
-            <article class="col-5">
-                <p class="mb-0 vmin4 dark-blue">Vacines</p>
-            </article>
-
-            <article class="col-5 text-right">
-                <p class="mb-0 vmin4 secondary-blue">30€</p>
-            </article>
-        </section>
-
-        <section class="row mt-4 align-items-center">
-            <article class="col-2 text-center">
-                <i class="fas p-3 fa-heart rounded-circle bg-grey blue"></i>
-            </article>
-
-            <article class="col-5">
-                <p class="mb-0 vmin4 dark-blue">Vacines</p>
-            </article>
-
-            <article class="col-5 text-right">
-                <p class="mb-0 vmin4 secondary-blue">30€</p>
-            </article>
-        </section>
-    </div>
-
-    <div id="Tue" class="bg-white p-2 mt-5 week-card" style="border-radius: 5px">
-        <section class="row justify-content-between align-items-end">
-            <article class="col-8">
-                <h4 class="dark-blue mb-0">Tuesday</h4>
-            </article>
-        </section>
-
-        <section class="row mt-4 align-items-center">
-            <article class="col-2 text-center">
-                <i class="fas p-3 fa-heart rounded-circle bg-grey blue"></i>
-            </article>
-
-            <article class="col-5">
-                <p class="mb-0 vmin4 dark-blue">Vacines</p>
-            </article>
-
-            <article class="col-5 text-right">
-                <p class="mb-0 vmin4 secondary-blue">30€</p>
-            </article>
-        </section>
-
-        <section class="row mt-4 align-items-center">
-            <article class="col-2 text-center">
-                <i class="fas p-3 fa-heart rounded-circle bg-grey blue"></i>
-            </article>
-
-            <article class="col-5">
-                <p class="mb-0 vmin4 dark-blue">Vacines</p>
-            </article>
-
-            <article class="col-5 text-right">
-                <p class="mb-0 vmin4 secondary-blue">30€</p>
-            </article>
-        </section>
-
-        <section class="row mt-4 align-items-center">
-            <article class="col-2 text-center">
-                <i class="fas p-3 fa-heart rounded-circle bg-grey blue"></i>
-            </article>
-
-            <article class="col-5">
-                <p class="mb-0 vmin4 dark-blue">Vacines</p>
-            </article>
-
-            <article class="col-5 text-right">
-                <p class="mb-0 vmin4 secondary-blue">30€</p>
-            </article>
-        </section>
-    </div>
-
-
-
-
-
+    ?>
 
 </div>
 <script src="js/weekChart.js"></script>

@@ -1,7 +1,20 @@
 <!doctype html>
 <html lang="en">
+<?php
+include "classes/User.php";
+include "classes/Distribution.php";
+include "classes/Categoria.php";
+include "classes/Purchase.php";
+include "classes/Week.php";
+session_start();
+$user = $_SESSION['user'];
+?>
 <?php include_once "componentes/head.php" ?>
 <?php include_once "connections/connection.php" ?>
+<?php
+include_once "scripts/get_stats.php";
+?>
+
 <body class="bg-light-grey animated fadeIn">
     <main class="container-fluid">
        <?php include_once "views/distribution.php" ?>
