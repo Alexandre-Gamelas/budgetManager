@@ -69,7 +69,7 @@
     <form id="formEntry" action="scripts/script_entry.php" method="post" class="row justify-content-center mt-3">
         <input id="valor" type="number" name="value" placeholder="0,00€" class="form-control col-8">
         <input id="nome" type="text" name="name" placeholder="Name your purchase" class="form-control col-8 mt-3">
-        <input id="idCat" type="text" name="idCat" class="d-none" value="teste">
+        <input id="idCat" type="text" name="idCat" class="d-none" value="">
     </form>
 
     <div id="favourites" class="costum-bg p-2 mt-5">
@@ -79,32 +79,32 @@
             </article>
         </section>
 
-        <section class="row mt-4 align-items-center">
-            <article class="col-2 text-center">
-                <i class="fas p-3 fa-heart rounded-circle bg-grey blue"></i>
-            </article>
+        <?php
+            foreach ($user->getFavourites() as $favourite){
+                $categoria = $user->figureOutCategoria($favourite);
+                ?>
+                <section class="row mt-4 align-items-center" data-name="<?= $favourite->getName()?>" data-value="<?= $favourite->getValor()?>" data-cat="<?=$categoria->getId()?>">
+                    <article class="col-2 text-center">
+                        <i class="fas p-3 <?=$categoria->getIcon()?> rounded-circle bg-grey <?=$categoria->getColor()?>"></i>
+                    </article>
 
-            <article class="col-5">
-                <p class="mb-0 vmin4 dark-blue">Vacine</p>
-            </article>
+                    <article class="col-5">
+                        <p class="mb-0 vmin4 dark-blue"><?= $favourite->getName()?></p>
+                    </article>
 
-            <article class="col-5 text-right">
-                <p class="mb-0 vmin4 secondary-blue">30€</p>
-            </article>
-        </section>
+                    <article class="col-5 text-right">
+                        <p class="mb-0 vmin4 secondary-blue"><?= $favourite->getValor()?>€</p>
+                    </article>
+                </section>
+                <?php
+            }
+        ?>
 
-        <section class="row mt-4 align-items-center">
-            <article class="col-2 text-center">
-                <i class="fas p-3 fa-utensils rounded-circle bg-grey green"></i>
-            </article>
-
-            <article class="col-5">
-                <p class="mb-0 vmin4 dark-blue">Americano</p>
-            </article>
-
-            <article class="col-5 text-right">
-                <p class="mb-0 vmin4 secondary-blue">5€</p>
-            </article>
+        <form id="formFavourite" action="scripts/script_entry.php" method="post" class="row justify-content-center mt-3 d-none">
+            <input id="favValor" type="number" name="value">
+            <input id="favNome" type="text" name="name">
+            <input id="favIdCat" type="text" name="idCat" class="d-none" value="">
+        </form>
     </div>
 
     <section class="row justify-content-center mt-3 mb-5">
@@ -112,22 +112,35 @@
     </section>
 </div>
 <script>
+    var isFav = false;
+
     $("#carouselCategorias .carousel-item i").click(function () { //click em bolinhas de carousel item
         $("#nomeContainer").removeClass("d-none");
         $(".border-selected").removeClass("border-selected");
         $(this).addClass("border-selected");
         $("#categoriaNome").html($(this).attr("data-name"));
-
         $("#idCat").attr('value', $(this).attr("data-id"));
+
+        isFav = false;
     });
 
     $("#submitEntry").click(function () {
-        $("#formEntry").submit();
+        if(isFav){
+            $("#formFavourite").submit();
+        } else {
+            $("#formEntry").submit();
+        }
     })
 
     $("#favourites section").click(function () {
         $(".border-selected").removeClass("border-selected");
         $(this).children().children("i").addClass("border-selected");
+
+        $("#favIdCat").attr('value', $(this).attr("data-cat"));
+        $("#favNome").attr('value', $(this).attr("data-name"));
+        $("#favValor").attr('value', $(this).attr("data-value"));
+
+        isFav = true;
     })
 
     $("#valor").focus(function () {

@@ -10,6 +10,7 @@ class User
     private $budget;
     private $distribution;
     private $categorias;
+    private $favourites;
 
     private $role;
     private $job;
@@ -115,6 +116,18 @@ class User
     {
         $this->categorias = $categorias;
     }
+
+    public function getFavourites()
+    {
+        return $this->favourites;
+    }
+
+    public function setFavourites($favourites)
+    {
+        $this->favourites = $favourites;
+    }
+
+
 
     public function figureOutCategoria($purchase){
         $id = $purchase->getCategoria();

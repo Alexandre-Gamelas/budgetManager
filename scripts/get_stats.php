@@ -1,6 +1,9 @@
 <?php
 $id_user = $user->getId();
 $categorias = array();
+$favourites = array();
+
+
 //get all categories
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
@@ -52,6 +55,47 @@ foreach ($categorias as $categoria){
 }
 $user->setCategorias($categorias);
 
+//get all favourites
+$link = new_db_connection();
+$stmt = mysqli_stmt_init($link);
+$query = "SELECT ref_compras from favoritos WHERE ref_utilizadores = ?";
 
+if (mysqli_stmt_prepare($stmt, $query)) {
+    mysqli_stmt_bind_param($stmt, 's', $id_user);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $id_fav);
+    while (mysqli_stmt_fetch($stmt)) {
+        array_push($favourites, $id_fav);
+    }
+} else {
+    mysqli_stmt_error($stmt);
+}
+mysqli_stmt_close($stmt);
+mysqli_close($link);
+
+
+//part2 get all favourites
+$finalFavourites = array();
+foreach ($favourites as $favourite){
+    $link = new_db_connection();
+    $stmt = mysqli_stmt_init($link);
+    $query = "SELECT compras.nome, compras.valor, ref_categorias FROM compras WHERE id_compras = ?";
+
+    if (mysqli_stmt_prepare($stmt, $query)) {
+        mysqli_stmt_bind_param($stmt, 's',$favourite);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_result($stmt,$name_purchase, $value_purchase, $categoria);
+        if (mysqli_stmt_fetch($stmt)) {
+            $purchase = new Purchase($favourite, $name_purchase, $value_purchase, "", $categoria);
+            array_push($finalFavourites, $purchase);
+        }
+    } else {
+        mysqli_stmt_error($stmt);
+    }
+    mysqli_stmt_close($stmt);
+    mysqli_close($link);
+}
+
+$user->setFavourites($finalFavourites);
 
 
