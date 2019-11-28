@@ -129,6 +129,7 @@ class User
 
 
 
+
     public function figureOutCategoria($purchase){
         $id = $purchase->getCategoria();
         foreach ($this->categorias as $categoria){

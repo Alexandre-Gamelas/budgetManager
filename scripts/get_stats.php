@@ -7,18 +7,19 @@ $favourites = array();
 //get all categories
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
-$query = "SELECT DISTINCT categorias.id_categorias, categorias.nome, icons.ref, cores.ref FROM categorias
+$query = "SELECT DISTINCT categorias.id_categorias, categorias.nome, icons.ref, cores.ref, orcamentos_has_categorias.valor FROM categorias
   Inner join utilizadores  ON categorias.ref_utilizador = id_utilizadores
   INNER JOIN cores ON categorias.ref_cores = id_cores
   INNER JOIN icons ON categorias.ref_icons = id_icons
+  INNER JOIN orcamentos_has_categorias  ON categorias.id_categorias = ref_categorias
 WHERE categorias.ref_utilizador = ?";
 
 if (mysqli_stmt_prepare($stmt, $query)) {
     mysqli_stmt_bind_param($stmt, 's', $id_user);
     mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $id_cat, $name_cat, $icon, $color);
+    mysqli_stmt_bind_result($stmt, $id_cat, $name_cat, $icon, $color, $valor);
     while (mysqli_stmt_fetch($stmt)) {
-        $categoria = new Categoria($id_cat, $name_cat, $icon, $color);
+        $categoria = new Categoria($id_cat, $name_cat, $icon, $color, $valor);
         array_push($categorias, $categoria);
     }
 } else {
@@ -54,6 +55,11 @@ foreach ($categorias as $categoria){
     $categoria->setPurchases($purchases);
 }
 $user->setCategorias($categorias);
+$alocated = 0;
+foreach ($categorias as $categoria){
+    $alocated+=$categoria->getValorBudget();
+}
+$user->getBudget()->setAlocated($alocated);
 
 //get all favourites
 $link = new_db_connection();

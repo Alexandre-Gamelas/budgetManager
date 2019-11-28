@@ -12,17 +12,18 @@ class Categoria
     private $count = 0;
 
     private $max;
-    private $percentBudget;
+    private $valorBudget;
 
     private $purchases = array();
 
 
-    public function __construct($id, $name, $icon, $color)
+    public function __construct($id, $name, $icon, $color, $valorBudget)
     {
         $this->id = $id;
         $this->name = $name;
         $this->icon = $icon;
         $this->color = $color;
+        $this->valorBudget = $valorBudget;
     }
 
     public function getId(){
@@ -104,13 +105,13 @@ class Categoria
         $this->max = $max;
     }
     
-    public function getPercentBudget()
+    public function getValorBudget()
     {
-        return $this->percentBudget;
+        return $this->valorBudget;
     }
 
-    public function setPercentBudget($percentBudget)
+    public function setValorBudget($valorBudget)
     {
-        $this->percentBudget = $percentBudget;
+        $this->valorBudget = $valorBudget;
     }
 }
