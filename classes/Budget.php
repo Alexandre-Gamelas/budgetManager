@@ -4,7 +4,7 @@ class Budget
     private $total;
     private $alocated;
 
-    public function __construct($total, $alocated){
+    public function __construct($total){
         $this->total = $total;
     }
 
