@@ -22,7 +22,7 @@ include_once "scripts/get_stats.php";
        <?php include_once "views/entry.php" ?>
        <?php include_once "views/budget.php" ?>
        <?php include_once "views/profile.php" ?>
-       <?php include_once "componentes/modais.php" ?>
+       <?php include_once "componentes/modais/modais.php" ?>
     </main>
 
     <footer>

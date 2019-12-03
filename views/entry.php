@@ -4,7 +4,7 @@
     include "componentes/top.php"
     ?>
 
-    <div class="mt-5 costum-bg ">
+    <div class="mt-5 costum-bg">
         <div id="carouselCategorias" class="carousel slide p-3" data-ride="carousel" data-interval="false">
         <div class="carousel-inner">
             <?php
@@ -59,9 +59,13 @@
     </div>
 
 
-    <section id="nomeContainer" class="row justify-content-centerd-none">
-        <article class="col-12 text-center p-2 pb-3">
+    <section id="nomeContainer" class="row justify-content-center align-items-center">
+        <article class="col-7 text-right p-2 pb-3">
             <h6 class="mb-0 secondary-blue" id="categoriaNome">Category</h6>
+        </article>
+
+        <article class="col-5 pt-2 pr-2 pl-0 pb-3">
+            <i class="fas fa-plus-circle secondary-blue" data-toggle="modal" data-target="#modalCategory"></i>
         </article>
     </section>
     </div>

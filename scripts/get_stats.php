@@ -103,5 +103,6 @@ foreach ($favourites as $favourite){
 }
 
 $user->setFavourites($finalFavourites);
-
+include_once "get_colors.php";
+include_once "get_icons.php";
 

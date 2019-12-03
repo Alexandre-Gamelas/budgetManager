@@ -3,6 +3,11 @@
     width: 50px;
     height: 50px;
 }
+.color{
+    width: 50px;
+    height: 50px;
+    z-index: 100000;
+}
 *{
     font-family: Montserrat, sans-serif;
 }
@@ -46,6 +51,10 @@ body{
 
 .blue{
     color: #007AFF;
+}
+
+.bg-blue{
+    background: #007AFF;
 }
 
 .bg-medium-blue{
@@ -151,7 +160,7 @@ body{
     color: white;
 }
 
-#loginForm input, #registerForm input, #registerForm select, #formEntry input{
+#loginForm input, #registerForm input, #registerForm select, #formEntry input, .modal input{
     border-radius: 30px;
     border-color: #77b9ff;
     padding: 10px;

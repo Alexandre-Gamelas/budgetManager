@@ -1,4 +1,4 @@
-let start = "distribution";
+let start = "entry";
 $("#" + start).addClass("view-active");
 
 $(".btn-menu-bot").click(function () {
