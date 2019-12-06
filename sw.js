@@ -1,6 +1,5 @@
 const cacheName = 'Budget Manager';
 const staticAssets = [
-    './app.php',
     './index.php',
     './css',
     './assets',

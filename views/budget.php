@@ -57,7 +57,7 @@
 
     <section class="row justify-content-end mt-2">
         <article id="optionsBudget" class="col-10 text-right collapse pr-0">
-            <i class="fas fa-plus p-3 rounded-circle bg-medium-blue blue"></i>
+            <i data-target="#modalCategory" data-toggle="modal" class="fas fa-plus p-3 rounded-circle bg-medium-blue blue"></i>
             <i class="far fa-edit ml-1 p-3 rounded-circle bg-medium-blue blue"></i>
         </article>
 

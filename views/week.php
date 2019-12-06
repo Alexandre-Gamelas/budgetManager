@@ -19,7 +19,6 @@ $week = new Week($purchasesThisWeek);
 
 <script>
     var valuesW = <?php echo $week->publishTotals(); ?>;
-    console.log(valuesW);
 </script>
 
 <div id="week" class="view mb-5 pb-5">

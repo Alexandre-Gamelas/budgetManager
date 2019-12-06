@@ -38,6 +38,7 @@ $user->setDistribution($distribution);
         <?php
         $categorias = $distribution->getCategorias();
         foreach ($categorias as $categoria){
+            if(sizeof($categoria->getPurchases()) > 0){
             ?>
             <section class="row mt-4 align-items-center">
                 <article class="col-2 text-center">
@@ -50,11 +51,11 @@ $user->setDistribution($distribution);
                 </article>
 
                 <article class="col-5 text-right">
-                    <p class="mb-0 vmin4 secondary-blue"><?= $categoria->getTotal()?>€ out 650€</p>
+                    <p class="mb-0 vmin4 secondary-blue"><?= $categoria->getTotal()?>€ out <?=$categoria->getValorBudget()?>€</p>
                 </article>
             </section>
             <?php
-        }
+        }}
         ?>
     </div>
 </div>

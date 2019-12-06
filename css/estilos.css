@@ -44,50 +44,6 @@ body{
 .progress{
     height: 4px;
 }
-/* CORES */
-.dark-blue{
-    color: #2A3C81;
-}
-
-.blue{
-    color: #007AFF;
-}
-
-.bg-blue{
-    background: #007AFF;
-}
-
-.bg-medium-blue{
-  background-color: #E5EDFB;
-}
-
-.secondary-blue{
-    color: #BCC2D8;
-}
-
-.bg-grey{
-    background-color: #F0F1F6;
-}
-
-.bg-light-grey{
-    background-color: #F5F7FB;
-}
-
-.green{
-    color: #3CD64A;
-}
-
-.bg-green{
-    background-color: #3CD64A;
-}
-
-.orange{
-    color: #FF9400;
-}
-
-.bg-orange{
-    background-color: #FF9400;
-}
 
 .border-selected{
     border: 1px solid #007AFF!important;

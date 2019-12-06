@@ -30,6 +30,7 @@
 
     <!-- MEUS -->
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/colors.css">
     <link rel="stylesheet" href="css/sideMenu.css">
     <script src="js/main.js"></script>
 

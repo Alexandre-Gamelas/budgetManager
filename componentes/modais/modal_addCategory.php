@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="row justify-content-center">
+                <form id="catForm" action="scripts/script_addCategory.php" method="post" class="row justify-content-center">
                     <article class="col-12">
                         <h5 class="blue">Name</h5>
                     </article>
@@ -22,7 +22,7 @@
                         <?php
                             foreach ($colors as $id => $color){
                                 ?>
-                                    <i class="fas p-3 blue mr-1 bg-<?=$color?> rounded-circle" data-id="<?=$id?>"></i>
+                                    <i class="fas p-3 blue mr-1 bg-<?=$color?> rounded-circle colorCat" data-id="<?=$id?>"></i>
                                 <?php
                             }
                         ?>
@@ -33,17 +33,38 @@
                         <?php
                         foreach ($icons as $id => $icon){
                             ?>
-                                <i class="fas p-3 blue mr-1 <?= $icon ?> rounded-circle bg-grey" data-id="<?= $id ?>"></i>
+                                <i class="fas p-3 blue mr-1 <?= $icon ?> rounded-circle bg-grey iconCat" data-id="<?= $id ?>"></i>
                             <?php
                         }
                         ?>
                     </article>
+                    <input id="colorCatInput" type="text" class="d-none" name="color">
+                    <input id="iconCatInput" type="text" class="d-none" name="icon">
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="button-1 mb-3 mt-3" data-dismiss="modal">Close</button>
-                <button id="" type="submit" class="button-1 mb-3 mt-3">Enter</button>
+                <button id="submitCat" class="button-1 mb-3 mt-3">Enter</button>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    $(".iconCat").click(function () {
+        $(".iconCat").removeClass("border-selected");
+        $(this).addClass("border-selected");
+        $("#iconCatInput").attr("value", $(this).attr("data-id"))
+
+    })
+
+    $(".colorCat").click(function () {
+        $(".colorCat").removeClass("border-selected");
+        $(this).addClass("border-selected");
+        $("#colorCatInput").attr("value", $(this).attr("data-id"))
+    })
+    
+    $("#submitCat").click(function () {
+        $("#catForm").submit();
+    })
+</script>

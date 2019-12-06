@@ -79,6 +79,8 @@ class Week
             $total = $this->getTotalDay($day);
             if($total > 0)
                 array_push($totalDays,$this->getTotalDay($day));
+            else
+                array_push($totalDays,false);
         }
         $totalDays = json_encode($totalDays);
         return $totalDays;
