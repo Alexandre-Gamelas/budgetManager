@@ -1,4 +1,4 @@
-<div id="budget" class="view">
+<div id="budget" class="view pb-5 mb-5">
     <?php
         $pageName = "Budget";
         include "componentes/top.php";
@@ -29,19 +29,24 @@
         <?php
             foreach($categorias as $categoria){
                 ?>
-                    <section class="row justify-content-center align-items-center mt-4">
+                    <section id="categoria<?=$categoria->getId()?>" class="row justify-content-center align-items-center mt-4">
                         <article class="col-8">
                             <h5 class="dark-blue mb-0"><i class="fas <?= $categoria->getIcon()?>  pr-2 pl-0"></i><?= $categoria->getName()?></h5>
                         </article>
 
                         <article class="col-4 text-right">
-                            <p class="secondary-dark-blue mb-0"><?= $categoria->getValorBudget()?>€</p>
+                            <p class="secondary-dark-blue mb-0 absoluteValue"><?= $categoria->getValorBudget()?>€</p>
                         </article>
 
                         <article class="col-12 mt-3">
-                            <div class="progress">
-                                <div class="progress-bar bg-<?=$categoria->getColor()?>" role="progressbar" style="width: <?=$budget->calcPercentage($categoria->getValorBudget())?>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress" style="width: 90%;">
+                                <div class="progress-bar bg-<?=$categoria->getColor()?> percentageValue" role="progressbar" style="width: <?=$budget->calcPercentage($categoria->getValorBudget())?>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <i class="pr-2 edit fas fa-pen <?=$categoria->getColor()?> mt-2" data-target="<?=$categoria->getId()?>"></i>
                             </div>
+                        </article>
+
+                        <article class="col-12">
+                            <input id="range<?=$categoria->getId()?>" type="range" class="costum-range pt-5 mt-2 pb-3 d-none" data-start="<?= $categoria->getValorBudget()?>" disabled value="<?= $categoria->getValorBudget()?>" min="0" max="<?=$categoria->getValorBudget() + ($budget->getTotal() - $budget->getAlocated())?>">
                         </article>
                     </section>
                 <?php
@@ -50,26 +55,15 @@
 
         <section class="row justify-content-center mt-2">
             <article class="col-12 text-center">
-                <p class="secondary-blue mb-0">Alocated: <?=$budget->getAlocated()?>€ out <?= $budget->getTotal()?>€ </p>
+                <p class="secondary-blue mb-0">Alocated: <span id="alocated"><?=$budget->getAlocated()?></span>€ out <?= $budget->getTotal()?>€ </p>
             </article>
         </section>
     </div>
-
-    <section class="row justify-content-end mt-2">
-        <article id="optionsBudget" class="col-10 text-right collapse pr-0">
-            <i data-target="#modalCategory" data-toggle="modal" class="fas fa-plus p-3 rounded-circle bg-medium-blue blue"></i>
-            <i class="far fa-edit ml-1 p-3 rounded-circle bg-medium-blue blue"></i>
-        </article>
-
-        <a data-toggle="collapse" href="#optionsBudget" role="button">
-            <article class="col-1 text-right">
-                <i class="fas fa-caret-down"></i>
-            </article>
-        </a>
-    </section>
-
-
-
-
-
 </div>
+
+
+<?php
+    $total = $budget->getTotal();
+    echo "<script>var totalBudget = $total</script>"
+?>
+<script src="js/budget.js"></script>
