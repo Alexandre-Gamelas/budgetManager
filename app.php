@@ -13,11 +13,24 @@ $user = $_SESSION['user'];
 <?php include_once "connections/connection.php" ?>
 <?php
 include_once "scripts/get_stats.php";
+
+if(isset($_GET['v']))
+    $start = $_GET['v'];
+else
+    $start = "distribution";
+
+echo "<script>let start = '$start'</script>"
 ?>
 
 <body class="bg-light-grey animated fadeIn">
     <main class="container-fluid">
-       <?php include_once "views/distribution.php" ?>
+
+       <?php
+       if($distribution)
+            include_once "views/distribution.php";
+       else
+           include_once "views/noDistribution.php"
+       ?>
        <?php include_once "views/week.php" ?>
        <?php include_once "views/entry.php" ?>
        <?php include_once "views/budget.php" ?>

@@ -18,9 +18,16 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     mysqli_stmt_bind_param($stmt, 's', $id_user);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_bind_result($stmt, $id_cat, $name_cat, $icon, $color, $valor);
+
+    $contador = 0;
     while (mysqli_stmt_fetch($stmt)) {
+        $contador++;
         $categoria = new Categoria($id_cat, $name_cat, $icon, $color, $valor);
         array_push($categorias, $categoria);
+    }
+
+    if($contador == 0){
+        header("Location: ../newUser.php");
     }
 } else {
     mysqli_stmt_error($stmt);
@@ -29,6 +36,7 @@ mysqli_stmt_close($stmt);
 mysqli_close($link);
 
 //get all purchases
+$month = date('m');
 foreach ($categorias as $categoria){
     $purchases = array();
     $id_cat = $categoria->getId();
@@ -36,16 +44,26 @@ foreach ($categorias as $categoria){
     $stmt = mysqli_stmt_init($link);
     $query = "SELECT compras.id_compras, compras.nome, compras.valor, utilizadores_has_compras.data FROM compras
             INNER JOIN utilizadores_has_compras  ON compras.id_compras = ref_compras
-            WHERE ref_utilizadores = ? and ref_categorias = ?";
+            WHERE ref_utilizadores = ? and ref_categorias = ? and utilizadores_has_compras.data like '%-$month-%'";
 
     if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_bind_param($stmt, 'ss', $id_user, $id_cat);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $id_purchase, $name_purchase, $value_purchase, $date_purchase);
+        $contador = 0;
+
         while (mysqli_stmt_fetch($stmt)) {
+            $contador++;
             $purchase = new Purchase($id_purchase, $name_purchase, $value_purchase, $date_purchase, $categoria->getId());
             array_push($purchases, $purchase);
         }
+
+        if($contador == 0){
+            $distribution = false;
+        } else {
+            $distribution = true;
+        }
+
     } else {
         mysqli_stmt_error($stmt);
     }

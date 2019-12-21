@@ -60,7 +60,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     mysqli_stmt_bind_param($stmt, 'id',$id, $total);
     $total = (double) $_POST["budget"];
     if (mysqli_stmt_execute($stmt)) {
-        echo "yes";
+        header("Location: ../login.php");
     }else{
         echo mysqli_stmt_error($stmt);
     }

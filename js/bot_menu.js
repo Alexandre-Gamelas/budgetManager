@@ -1,4 +1,3 @@
-let start = "budget";
 $("#" + start).addClass("view-active");
 
 $(".btn-menu-bot").click(function () {

@@ -1,8 +1,13 @@
 <?php
 $name = $user->getName();
 $nationality = $user->getNationality();
-$total = $distribution->getTotalCat();
-$count = $distribution->getCount();
+if($distribution){
+    $total = $distribution->getTotalCat();
+    $count = $distribution->getCount();
+} else {
+    $total = 0;
+    $count = 0;
+}
 ?>
 
 <div id="profile" class="view">

@@ -14,7 +14,18 @@
 
         <article class="col-5 costum-bg mr-3">
             <p class="secondary-blue mb-0">Total Expenses</p>
-            <h3 class="blue">€<?= $distribution->getTotalCat() ?></h3>
+            <?php
+                if($distribution) {
+                    ?>
+                    <h3 class="blue">€<?= $distribution->getTotalCat() ?></h3>
+                    <?php
+                } else {
+                    ?>
+                    <h3 class="blue">0€</h3>
+
+                    <?php
+                }
+            ?>
         </article>
     </section>
 
@@ -46,12 +57,16 @@
                         </article>
 
                         <article class="col-12">
-                            <input id="range<?=$categoria->getId()?>" type="range" class="costum-range pt-5 mt-2 pb-3 d-none" data-start="<?= $categoria->getValorBudget()?>" disabled value="<?= $categoria->getValorBudget()?>" min="0" max="<?=$categoria->getValorBudget() + ($budget->getTotal() - $budget->getAlocated())?>">
+                            <input name="<?=$categoria->getId()?>" form="formCat" id="range<?=$categoria->getId()?>" type="range" class="costum-range pt-5 mt-2 pb-3 d-none" data-start="<?= $categoria->getValorBudget()?>" disabled value="<?= $categoria->getValorBudget()?>" min="0" max="<?=$categoria->getValorBudget() + ($budget->getTotal() - $budget->getAlocated())?>">
                         </article>
                     </section>
                 <?php
             }
         ?>
+
+        <form class="row justify-content-center p-4" id="formCat" method="post" action="scripts/script_updateCat.php">
+                <button class="button-1 col-6" type="submit">Save</button>
+        </form>
 
         <section class="row justify-content-center mt-2">
             <article class="col-12 text-center">
