@@ -6,8 +6,14 @@ include "classes/Distribution.php";
 include "classes/Categoria.php";
 include "classes/Purchase.php";
 include "classes/Week.php";
+include "classes/Feedback.php";
+
 session_start();
-$user = $_SESSION['user'];
+if(isset($_SESSION['user']))
+    $user = $_SESSION['user'];
+else
+    header("Location: index.php");
+
 ?>
 <?php include_once "componentes/head.php" ?>
 <?php include_once "connections/connection.php" ?>
@@ -19,7 +25,8 @@ if(isset($_GET['v']))
 else
     $start = "distribution";
 
-echo "<script>let start = '$start'</script>"
+echo "<script>let start = '$start'</script>";
+
 ?>
 
 <body class="bg-light-grey animated fadeIn">
@@ -44,4 +51,8 @@ echo "<script>let start = '$start'</script>"
     <?php include_once "componentes/side_menu.php"?>
     <script src="js/bot_menu.js"></script>
 </body>
+<?php
+if(isset($_GET['f']))
+    $feedbackHandler = new Feedback($_GET['f']);
+?>
 </html>

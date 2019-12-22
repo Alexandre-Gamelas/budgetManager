@@ -19,10 +19,12 @@ if (mysqli_stmt_prepare($stmt, $query)) {
         $stepOne = true;
     }else{
         echo mysqli_stmt_error($stmt);
+        header("Location: ../app.php?f=newCatNo&v=budget");
     }
     mysqli_stmt_close($stmt);
 } else {
     echo mysqli_stmt_error($stmt);
+    header("Location: ../app.php?f=newCatNo&v=budget");
 }
 mysqli_close($link);
 
@@ -44,18 +46,24 @@ if($stepOne){
                     $stepTwo = true;
                 } else {
                     echo mysqli_stmt_error($stmt);
+                    header("Location: ../app.php?f=newCatNo&v=budget");
                 }
             }   else{
 
                 echo mysqli_stmt_error($stmt);
+                header("Location: ../app.php?f=newCatNo&v=budget");
 
             }
             mysqli_stmt_close($stmt);
         } else {
             echo mysqli_stmt_error($stmt);
+            header("Location: ../app.php?f=newCatNo&v=budget");
+
         }
     } else {
         echo mysqli_stmt_error($stmt);
+        header("Location: ../app.php?f=newCatNo&v=budget");
+
     }
     mysqli_close($link);
 }
@@ -68,13 +76,15 @@ if($stepTwo){
     if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_bind_param($stmt, 'ss',$id, $user);
         if (mysqli_stmt_execute($stmt)) {
-            header("Location: ../app.php");
+            header("Location: ../app.php?f=newCatYes&v=budget");
         }else{
             echo mysqli_stmt_error($stmt);
+            header("Location: ../app.php?f=newCatNo&v=budget");
         }
         mysqli_stmt_close($stmt);
     } else {
         echo mysqli_stmt_error($stmt);
+        header("Location: ../app.php?f=newCatNo&v=budget");
     }
     mysqli_close($link);
 }

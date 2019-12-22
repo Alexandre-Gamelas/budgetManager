@@ -29,4 +29,10 @@
 
 </main>
 </body>
+<?php
+if(isset($_GET['f']))
+    $feedbackHandler = new Feedback($_GET['f']);
+
+include_once "componentes/modais/modais.php";
+?>
 </html>

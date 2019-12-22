@@ -21,12 +21,15 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                 $id++;
             } else {
                 echo mysqli_stmt_error($stmt);
+                header("Location: ../app.php?f=purchaseNo");
             }
         } else {
             echo mysqli_stmt_error($stmt);
+            header("Location: ../app.php?f=purchaseNo");
         }
     } else {
         echo mysqli_stmt_error($stmt);
+        header("Location: ../app.php?f=purchaseNo");
     }
     mysqli_stmt_close($stmt);
 }
@@ -43,10 +46,12 @@ if (mysqli_stmt_prepare($stmt, $query)) {
         echo "yes purchase";
     }else{
         echo mysqli_stmt_error($stmt);
+        header("Location: ../app.php?f=purchaseNo");
     }
     mysqli_stmt_close($stmt);
 } else {
     echo mysqli_stmt_error($stmt);
+    header("Location: ../app.php?f=purchaseNo");
 }
 mysqli_close($link);
 
@@ -62,13 +67,15 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     mysqli_stmt_bind_param($stmt, 'sss', $userId, $id, $date);
     if (mysqli_stmt_execute($stmt)) {
         echo "yes user has purchase";
-        header("Location: ../app.php");
+        header("Location: ../app.php?f=purchaseYes");
     }else{
         echo mysqli_stmt_error($stmt);
+        header("Location: ../app.php?f=purchaseNo");
     }
     mysqli_stmt_close($stmt);
 } else {
     echo mysqli_stmt_error($stmt);
+    header("Location: ../app.php?f=purchaseNo");
 }
 mysqli_close($link);
 

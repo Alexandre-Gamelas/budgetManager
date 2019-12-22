@@ -19,10 +19,12 @@ if (mysqli_stmt_prepare($stmt, $query)) {
         echo "yes";
     }else{
         echo mysqli_stmt_error($stmt);
+        header("Location: ../register.php?f=registerNo");
     }
     mysqli_stmt_close($stmt);
 } else {
     echo mysqli_stmt_error($stmt);
+    header("Location: ../register.php?f=registerNo");
 }
 mysqli_close($link);
 
@@ -39,12 +41,15 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
             } else {
                 echo mysqli_stmt_error($stmt);
+                header("Location: ../register.php?f=registerNo");
             }
         } else {
             echo mysqli_stmt_error($stmt);
+            header("Location: ../register.php?f=registerNo");
         }
     } else {
         echo mysqli_stmt_error($stmt);
+        header("Location: ../register.php?f=registerNo");
     }
     mysqli_stmt_close($stmt);
 }
@@ -60,12 +65,14 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     mysqli_stmt_bind_param($stmt, 'id',$id, $total);
     $total = (double) $_POST["budget"];
     if (mysqli_stmt_execute($stmt)) {
-        header("Location: ../login.php");
+        header("Location: ../login.php?f=registerYes");
     }else{
         echo mysqli_stmt_error($stmt);
+        header("Location: ../register.php?f=registerNo");
     }
     mysqli_stmt_close($stmt);
 } else {
     echo mysqli_stmt_error($stmt);
+    header("Location: ../register.php?f=registerNo");
 }
 mysqli_close($link);

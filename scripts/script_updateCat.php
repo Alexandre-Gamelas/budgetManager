@@ -34,5 +34,7 @@ foreach ($values as $cat => $value){
 }
 var_dump($completed);
 if($completed){
-    header("Location: ../app.php");
+    header("Location: ../app.php?f=updateCatYes&v=budget");
+} else {
+    header("Location: ../app.php?f=updateCatNo&v=budget");
 }
