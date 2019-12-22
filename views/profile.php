@@ -67,14 +67,16 @@ if($distribution){
             </article>
         </section>
 
-        <section class="row justify-content-center align-items-center pt-3 pb-3 mt-4 ml-3 mr-3 marginProfile">
-            <article class="col-2 text-center">
-                <i class="fas fa-sign-out-alt"></i>
-            </article>
+        <a href="scripts/logout.php">
+            <section class="row justify-content-center align-items-center pt-3 pb-3 mt-4 ml-3 mr-3 marginProfile">
+                <article class="col-2 text-center">
+                    <i class="fas fa-sign-out-alt"></i>
+                </article>
 
-            <article class="col-10 ">
-                <h6 class="mb-0">Logout</h6>
-            </article>
-        </section>
+                <article class="col-10 ">
+                    <h6 class="mb-0">Logout</h6>
+                </article>
+            </section>
+        </a>
     </div>
 </div>

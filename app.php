@@ -7,12 +7,11 @@ include "classes/Categoria.php";
 include "classes/Purchase.php";
 include "classes/Week.php";
 include "classes/Feedback.php";
-
 session_start();
 if(isset($_SESSION['user']))
     $user = $_SESSION['user'];
 else
-    header("Location: index.php");
+    header("Location: index.php")
 
 ?>
 <?php include_once "componentes/head.php" ?>

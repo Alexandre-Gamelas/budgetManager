@@ -12,6 +12,15 @@
     font-family: Montserrat, sans-serif;
 }
 
+a{
+    color: inherit!important;
+    text-decoration: none;
+}
+
+a:active,a:hover,a:link,a:visited{
+    text-decoration: none;
+}
+
 .font-weigth-semibold{
     font-weight: 600;
 }
