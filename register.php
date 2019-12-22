@@ -79,11 +79,12 @@
         $("#carouselRegister").carousel('prev');
     })
 </script>
-
 <?php
+include "classes/Feedback.php";
+include_once "componentes/modais/modais.php";
+
 if(isset($_GET['f']))
     $feedbackHandler = new Feedback($_GET['f']);
 
-include_once "componentes/modais/modais.php";
 ?>
 </html>

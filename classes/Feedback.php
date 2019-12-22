@@ -14,6 +14,7 @@ class Feedback
         ?>
             <script>
                 var type = '<?=$this->type?>';
+                console.log(type);
                 var title;
                 var text;
                 var icon;
