@@ -147,11 +147,11 @@
         isFav = true;
     })
 
-    $("#valor").focus(function () {
+    $("#valor, #nome").focus(function () {
         $("#botMenu").addClass("animated fadeOut");
     })
 
-    $("#valor").focusout(function () {
+    $("#valor, #nome").focusout(function () {
         $("#botMenu").removeClass("animated fadeOut");
         $("#botMenu").addClass("animated fadeIn");
 
