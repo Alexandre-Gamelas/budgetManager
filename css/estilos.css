@@ -251,6 +251,9 @@ input[type=range]:focus::-ms-fill-upper {
     background: rgba(13, 13, 13, 0.54);
 }
 
+.deleteCat{
+    font-size: 3.5vmin;
+}
 
 
 

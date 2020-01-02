@@ -42,7 +42,7 @@
                 ?>
                     <section id="categoria<?=$categoria->getId()?>" class="row justify-content-center align-items-center mt-4">
                         <article class="col-8">
-                            <h5 class="dark-blue mb-0"><i class="fas <?= $categoria->getIcon()?>  pr-2 pl-0"></i><?= $categoria->getName()?></h5>
+                            <h5 class="dark-blue mb-0"><i class="fas <?= $categoria->getIcon()?>  pr-2 pl-0"></i><?= $categoria->getName()?> <a href="scripts/delete_cat.php?id=<?=$categoria->getId()?>" class="fas fa-times text-danger deleteCat"></a></h5>
                         </article>
 
                         <article class="col-4 text-right">

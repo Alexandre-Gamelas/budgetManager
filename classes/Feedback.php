@@ -41,6 +41,9 @@ class Feedback
                     case 'newCatYes':
                         text = "New category registered!";
                         break;
+                    case 'deleteYes':
+                        text = "Deleted with Success!";
+                        break;
                 }
 
                 $("#iconFeedback").html(icon);

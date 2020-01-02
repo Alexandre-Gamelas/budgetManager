@@ -1,5 +1,7 @@
 <?php
 require_once "../connections/connection.php";
+session_start();
+session_destroy();
 //var_dump($_POST);
 
 /*******CREATE USER***********/
