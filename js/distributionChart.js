@@ -5,8 +5,8 @@ var myPieChart = new Chart(ctx, {
         labels: labelsD,
         datasets: [{
             data: valuesD,
-            backgroundColor: ['#FF9100', '#C436FB', '#36b9cc'],
-            hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+            backgroundColor: colorsD,
+            hoverBackgroundColor: colorsD,
             hoverBorderColor: "rgba(234, 236, 244, 1)",
         }],
     },

@@ -18,12 +18,15 @@ include_once "scripts/get_icons.php";
 
 <body class="bg-light-grey animated fadeIn">
 <main class="container-fluid">
-    <h4>Bem Vindo ao Budget Manager</h4>
-    <h6>Comece Por Adicionar uma Categoria</h6>
-
+    <section class="row justify-content-center">
+        <article class="col-12 pt-4">
+            <h4 class="blue">Bem Vindo ao Budget Manager</h4>
+            <h6>Comece Por Adicionar uma Categoria</h6>
+        </article>
+    </section>
     <form id="catForm" action="scripts/script_addCategory.php" method="post" class="row justify-content-center mt-5">
         <article class="col-12 col-lg-6">
-            <h5 class="blue">Category</h5>
+            <h5 class="blue">Category Name</h5>
         </article>
         <div class="col-12"></div>
         <article class="col-8 col-lg-4 text-center">

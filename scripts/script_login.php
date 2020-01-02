@@ -25,14 +25,18 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                 header("Location: ../app.php");
             } else {
                 echo "wrong password mate";
+                header("Location: ../app.php?f=loginNo");
             }
         } else {
             mysqli_stmt_error($stmt);
+            header("Location: ../index.php?f=loginNo");
         }
     } else {
         mysqli_stmt_error($stmt);
+        header("Location: ../index.php?f=loginNo");
     }
 } else {
     mysqli_stmt_error($stmt);
+    header("Location: ../index.php?f=loginNo");
 }
 

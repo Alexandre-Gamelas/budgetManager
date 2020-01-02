@@ -12,7 +12,6 @@ if(isset($_SESSION['user']))
     $user = $_SESSION['user'];
 else
     header("Location: index.php")
-
 ?>
 <?php include_once "componentes/head.php" ?>
 <?php include_once "connections/connection.php" ?>

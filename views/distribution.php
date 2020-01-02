@@ -5,6 +5,7 @@ $user->setDistribution($distribution);
 <script>
     var labelsD = <?php echo $distribution->publishLabels(); ?>;
     var valuesD = <?php echo $distribution->publishPercent(); ?>;
+    var colorsD = <?php echo $distribution->publishColors(); ?>;
 </script>
 
 <div id="distribution" class="view">

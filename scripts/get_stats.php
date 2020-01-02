@@ -37,6 +37,8 @@ mysqli_close($link);
 
 //get all purchases
 $month = date('m');
+$contador = 0;
+
 foreach ($categorias as $categoria){
     $purchases = array();
     $id_cat = $categoria->getId();
@@ -50,7 +52,6 @@ foreach ($categorias as $categoria){
         mysqli_stmt_bind_param($stmt, 'ss', $id_user, $id_cat);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $id_purchase, $name_purchase, $value_purchase, $date_purchase);
-        $contador = 0;
 
         while (mysqli_stmt_fetch($stmt)) {
             $contador++;
@@ -58,11 +59,6 @@ foreach ($categorias as $categoria){
             array_push($purchases, $purchase);
         }
 
-        if($contador == 0){
-            $distribution = false;
-        } else {
-            $distribution = true;
-        }
 
     } else {
         mysqli_stmt_error($stmt);
@@ -72,6 +68,13 @@ foreach ($categorias as $categoria){
 
     $categoria->setPurchases($purchases);
 }
+
+if($contador == 0){
+    $distribution = false;
+} else {
+    $distribution = true;
+}
+
 $user->setCategorias($categorias);
 $alocated = 0;
 foreach ($categorias as $categoria){

@@ -67,6 +67,15 @@ class Distribution
         return $percent;
     }
 
+    public function publishColors(){
+        $colors = array();
+        foreach ($this->categorias as $categoria){
+            array_push($colors, $categoria->getColor());
+        }
+        $colors = json_encode($colors);
+        return $colors;
+}
+
     public function getMaxPercent()
     {
        return $this->maxPercent;

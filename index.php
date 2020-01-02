@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="en">
+
 <?php include_once "componentes/head.php" ?>
+<?php
+session_start();
+include_once "scripts/check_log.php";
+?>
     <body class="bg-light-grey">
         <main class="container-fluid">
             <section class="row mt-5 pb-5 pt-5 justify-content-center">
